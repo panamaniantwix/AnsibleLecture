@@ -1,0 +1,13 @@
+---
+- name: My First Playbook
+  hosts: tags_Name_gthorneday3*
+  gather_facts: false
+  become: true
+  vars_files:
+    - "vars.yaml"
+
+
+roles:
+  - second_role
+
+ 

@@ -1,0 +1,11 @@
+#tasks file for first_role
+-name: add test.txt file
+file: 
+  path: /home/ec2-user/Ansible_Workbook1/first_role
+  state: touch
+
+
+  name: add line in file
+  lineinfile: 
+    path:line: "{{ line}}"
+    

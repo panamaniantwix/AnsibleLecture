@@ -1,0 +1,41 @@
+---
+- name: My First Playbook
+  hosts: tags_Name_gthorneday3*
+  gather_facts: true
+  vars_files:
+    - "vars.yaml"
+
+  tasks: 
+  - name: Install the latest version
+    yum:
+      name: httpd
+      state: latest
+      enable: true
+
+
+ -name: Start Apaches
+  ansible.builtin.service:
+    name: httpd
+    start: started
+    enabled: true
+
+-name: add index index.html
+file:
+  path: /home/ec2-user/Ansible_Workbook1
+  state: touch
+
+ -name: add line in file 
+  lineinfile:
+    path: /home/ec2-user/Ansible_Workbook1
+    line: <h1> Welcome to SkillStorm <h1>
+
+
+  -name: add line 2 in file 
+  lineinfile:
+    path: /home/ec2-user/Ansible_Workbook1
+    line: <h1> Welcome to SkillStorm <h1>
+
+
+- debug:
+    msg: "My IPv4 address is  {{ansible_all_ipv4_addresses}}"  
+  
